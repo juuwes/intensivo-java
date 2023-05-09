@@ -35,7 +35,12 @@ public class Game {
 	private String platforms;
 	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")	
 	private String shortDescription;
+
+// instrução para JPA gerar o campo como texto, não varchar
+	@Column(columnDefinition = "TEXT")	
 	private String longDescription;
 
 	public Game() { // construtor sem argumentos
