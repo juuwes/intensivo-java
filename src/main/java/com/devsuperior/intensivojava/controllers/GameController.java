@@ -14,7 +14,6 @@ import com.devsuperior.intensivojava.services.GameService;
 
 // Controlador REST: porta de entrada o back-end, disponibiliza a API
 @RestController
-
 // @RequestMapping: mapear o recurso. Configurar o caminho respondido na API
 @RequestMapping(value = "/games")
 public class GameController { 
@@ -27,9 +26,9 @@ public class GameController {
 // configurar o verbo HTTP com argumento.
 	@GetMapping(value = "/{id}")
 // @PathVariable: corresponder com id na requisição.
-	public GameDTO findAll(@PathVariable Long id) {
+	public GameDTO findById(@PathVariable Long id) {
 		GameDTO result = gameService.findById(id);
-		return result;		
+		return result;
 	}
 	
 // @GetMapping: mapear Service com o verbo HTTP | endopoint buscar/obter os objetos - metodo GET
