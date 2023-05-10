@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 // Entity: configura classe java para ser equivalente a uma tabela de bd relacional
 @Entity
 
-// Table: customizar nomme da tabela.
+// Table: customizar nome da tabela.
 @Table(name = "tb_game")
 
 public class Game {
@@ -39,7 +39,7 @@ public class Game {
 	@Column(columnDefinition = "TEXT")	
 	private String shortDescription;
 
-// instrução para JPA gerar o campo como texto, não varchar
+// instrução para JPA gerar o campo como texto e não como varchar
 	@Column(columnDefinition = "TEXT")	
 	private String longDescription;
 
