@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.intensivojava.dto.GameDTO;
 import com.devsuperior.intensivojava.dto.GameMinDTO;
 import com.devsuperior.intensivojava.entities.Game;
+import com.devsuperior.intensivojava.projections.GameMinProjection;
 import com.devsuperior.intensivojava.repositories.GameRepository;
 
 @Service // ou @Component - registrar classe como componente de sistema - framework gerencia
@@ -43,6 +44,12 @@ public class GameService {
 
 /* lib do java | stream(): permite fazer operações com sequencias de dados, operação map(): transforma objetos
 * para voltar um stream() para lista .toList()*/
+		return result.stream().map(x -> new GameMinDTO(x)).toList();
+	}
+	
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findByList(Long listId) { 
+		List<GameMinProjection> result = gameRepository.searchByList(listId); // procurar pela lista(id)
 		return result.stream().map(x -> new GameMinDTO(x)).toList();
 	}
 
